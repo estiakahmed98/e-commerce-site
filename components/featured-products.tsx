@@ -12,34 +12,34 @@ import { ShoppingCart, EyeIcon as Eye3d } from "lucide-react"
 const featuredProducts = [
   {
     id: 1,
-    name: "Premium Headphones",
-    price: 199.99,
-    image: "/placeholder.svg?height=300&width=300",
-    category: "Electronics",
+    name: "Men's Loafer",
+    price: 2770.00,
+    image: "/images/Shoes.webp",
+    category: "Men's",
     has3d: true,
   },
   {
     id: 2,
-    name: "Ergonomic Chair",
-    price: 249.99,
-    image: "/placeholder.svg?height=300&width=300",
-    category: "Furniture",
+    name: "Wedge-Heel Sandal",
+    price: 1274.99,
+    image: "/images/ladiesheel.webp",
+    category: "Women's",
     has3d: true,
   },
   {
     id: 3,
-    name: "Smart Watch",
-    price: 149.99,
-    image: "/placeholder.svg?height=300&width=300",
-    category: "Electronics",
+    name: "Child Boys Sandal ",
+    price: 974.00,
+    image: "/images/childsandal.avif",
+    category: "children",
     has3d: true,
   },
   {
     id: 4,
-    name: "Designer Lamp",
-    price: 89.99,
-    image: "/placeholder.svg?height=300&width=300",
-    category: "Home Decor",
+    name: "Belt Sandal for Kids",
+    price: 1874.50,
+    image: "/images/sandalkids.webp",
+    category: "kids",
     has3d: false,
   },
 ]
@@ -79,7 +79,7 @@ export default function FeaturedProducts() {
                 <h3 className="font-semibold text-lg">{product.name}</h3>
                 <p className="text-sm text-muted-foreground">{product.category}</p>
               </div>
-              <p className="font-bold">${product.price.toFixed(2)}</p>
+              <p className="font-bold">TK {product.price.toFixed(2)}</p>
             </div>
           </CardContent>
           <CardFooter className="p-4 pt-0 flex gap-2">

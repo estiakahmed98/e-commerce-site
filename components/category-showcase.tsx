@@ -6,26 +6,26 @@ import { Card, CardContent } from "@/components/ui/card"
 const categories = [
   {
     id: 1,
-    name: "Electronics",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Mens",
+    image: "/images/men.png",
     productCount: 42,
   },
   {
     id: 2,
-    name: "Furniture",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Women's",
+    image: "/images/women.jpg",
     productCount: 38,
   },
   {
     id: 3,
-    name: "Clothing",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Kids",
+    image: "/images/kids.jpg",
     productCount: 56,
   },
   {
     id: 4,
-    name: "Home Decor",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Children",
+    image: "/images/child.png",
     productCount: 29,
   },
 ]
