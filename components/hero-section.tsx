@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Animation from "./Animation";
 
 export default function HeroSection() {
   return (
@@ -26,11 +27,7 @@ export default function HeroSection() {
         </div>
         <div className="lg:w-1/2 flex justify-center">
           <div className="relative w-full max-w-lg aspect-square bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-lg text-muted-foreground">
-                3D Product Preview
-              </span>
-            </div>
+            <Animation modelUrl="/assets/3d/sneaker.glb" />
           </div>
         </div>
       </div>

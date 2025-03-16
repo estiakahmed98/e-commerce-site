@@ -1,11 +1,11 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import ProductViewer3D from "@/components/product-viewer-3d"
-import RelatedProducts from "@/components/related-products"
-import { ShoppingCart, ArrowLeft } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import ProductViewer3D from "@/components/product-viewer-3d";
+import RelatedProducts from "@/components/related-products";
+import { ShoppingCart, ArrowLeft } from "lucide-react";
 
 // Mock data - in a real app, this would come from your database
 const getProduct = (id: string) => {
@@ -18,11 +18,7 @@ const getProduct = (id: string) => {
     purchasePrice: 120.0,
     stock: 45,
     category: "Electronics",
-    images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-    ],
+    images: ["/assets/heel.jpg", "/assets/heel.jpg", "/assets/heel.jpg"],
     has3d: true,
     specifications: [
       { name: "Connectivity", value: "Bluetooth 5.0" },
@@ -31,17 +27,20 @@ const getProduct = (id: string) => {
       { name: "Weight", value: "250g" },
       { name: "Warranty", value: "2 years" },
     ],
-  }
-}
+  };
+};
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = getProduct(params.id)
-  const profit = product.price - product.purchasePrice
-  const profitMargin = (profit / product.price) * 100
+  const product = getProduct(params.id);
+  const profit = product.price - product.purchasePrice;
+  const profitMargin = (profit / product.price) * 100;
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <Link href="/products" className="inline-flex items-center mb-6 text-primary hover:underline">
+      <Link
+        href="/products"
+        className="inline-flex items-center mb-6 text-primary hover:underline"
+      >
         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Products
       </Link>
 
@@ -52,8 +51,16 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <TabsTrigger value="images">Images</TabsTrigger>
               {product.has3d && <TabsTrigger value="3d">3D View</TabsTrigger>}
             </TabsList>
-            <TabsContent value="images" className="relative aspect-square bg-muted rounded-lg overflow-hidden">
-              <Image src={product.images[0] || "/placeholder.svg"} alt={product.name} fill className="object-contain" />
+            <TabsContent
+              value="images"
+              className="relative aspect-square bg-muted rounded-lg overflow-hidden"
+            >
+              <Image
+                src={product.images[0] || "/placeholder.svg"}
+                alt={product.name}
+                fill
+                className="object-contain"
+              />
             </TabsContent>
             {product.has3d && (
               <TabsContent value="3d" className="h-[500px]">
@@ -64,7 +71,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
           <div className="flex gap-4 mt-4">
             {product.images.map((image, index) => (
-              <div key={index} className="relative w-20 h-20 border rounded cursor-pointer overflow-hidden">
+              <div
+                key={index}
+                className="relative w-20 h-20 border rounded cursor-pointer overflow-hidden"
+              >
                 <Image
                   src={image || "/placeholder.svg"}
                   alt={`${product.name} - view ${index + 1}`}
@@ -85,8 +95,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
           <div className="mb-6">
             <p className="text-sm text-muted-foreground mb-1">Availability:</p>
-            <p className={`font-medium ${product.stock > 0 ? "text-green-600" : "text-red-600"}`}>
-              {product.stock > 0 ? `In Stock (${product.stock} available)` : "Out of Stock"}
+            <p
+              className={`font-medium ${
+                product.stock > 0 ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {product.stock > 0
+                ? `In Stock (${product.stock} available)`
+                : "Out of Stock"}
             </p>
           </div>
 
@@ -110,9 +126,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-6">Related Products</h2>
-        <RelatedProducts categoryId={product.category} currentProductId={product.id} />
+        <RelatedProducts
+          categoryId={product.category}
+          currentProductId={product.id}
+        />
       </div>
     </div>
-  )
+  );
 }
-

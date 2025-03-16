@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ShoppingCart, EyeIcon as Eye3d } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ShoppingCart, EyeIcon as Eye3d } from "lucide-react";
 
 // Mock data - in a real app, this would come from your database
 const featuredProducts = [
@@ -42,19 +42,19 @@ const featuredProducts = [
     category: "kids",
     has3d: false,
   },
-]
+];
 
 export default function FeaturedProducts() {
-  const [addedToCart, setAddedToCart] = useState<Record<number, boolean>>({})
+  const [addedToCart, setAddedToCart] = useState<Record<number, boolean>>({});
 
   const handleAddToCart = (productId: number) => {
-    setAddedToCart((prev) => ({ ...prev, [productId]: true }))
+    setAddedToCart((prev) => ({ ...prev, [productId]: true }));
 
     // Reset the "Added" state after 2 seconds
     setTimeout(() => {
-      setAddedToCart((prev) => ({ ...prev, [productId]: false }))
-    }, 2000)
-  }
+      setAddedToCart((prev) => ({ ...prev, [productId]: false }));
+    }, 2000);
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -77,13 +77,19 @@ export default function FeaturedProducts() {
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="font-semibold text-lg">{product.name}</h3>
-                <p className="text-sm text-muted-foreground">{product.category}</p>
+                <p className="text-sm text-muted-foreground">
+                  {product.category}
+                </p>
               </div>
               <p className="font-bold">TK {product.price.toFixed(2)}</p>
             </div>
           </CardContent>
           <CardFooter className="p-4 pt-0 flex gap-2">
-            <Button variant="default" className="flex-1" onClick={() => handleAddToCart(product.id)}>
+            <Button
+              variant="default"
+              className="flex-1"
+              onClick={() => handleAddToCart(product.id)}
+            >
               {addedToCart[product.id] ? (
                 "Added!"
               ) : (
@@ -101,6 +107,5 @@ export default function FeaturedProducts() {
         </Card>
       ))}
     </div>
-  )
+  );
 }
-
