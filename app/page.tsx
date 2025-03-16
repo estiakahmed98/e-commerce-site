@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import FeaturedProducts from "@/components/featured-products"
 import HeroSection from "@/components/hero-section"
 import CategoryShowcase from "@/components/category-showcase"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
@@ -29,6 +30,9 @@ export default function Home() {
             </Button>
           </Link>
         </div>
+       <div>
+        <Footer/>
+        </div> 
       </div>
     </main>
   )
